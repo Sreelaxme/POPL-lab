@@ -32,9 +32,17 @@ fun reverse []       = []
 
 
 (* Qn 5 fib : int -> int *)
+
+(*Exponential time 
 fun fib 0  = 0
   | fib 1  = 1
   | fib x  = fib (x-1) + fib (x-2);
+ *)
+
+fun fib_help a b 0 = a
+  | fib_help a b c = fib_help b (a+b) (c-1)
+;
+  fun fib n = fib_help 0 1 n;
 
 
 			  
