@@ -19,8 +19,7 @@ fun snd (a,b)  = b;
   
 (* Qn 3 length : 'a list-> int *)
 
-fun length [x]     = 1
-  | length []      = 0
+fun length []     = 0
   | length (x::xs) = length xs +1;
 
 (* Qn 4 reverse : 'a list -> 'a list *)
