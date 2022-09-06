@@ -19,8 +19,7 @@ fun snd (a,b)  = b;
   
 (* Qn 3 length : 'a list-> int *)
 
-fun length [x]     = 1
-  | length []      = 0
+fun length []     = 0
   | length (x::xs) = length xs +1;
 
 (* Qn 4 reverse : 'a list -> 'a list *)
@@ -40,8 +39,7 @@ fun fib 0  = 0
  *)
 
 fun fib_help a b 0 = a
-  | fib_help a b c = fib_help b (a+b) (c-1)
-;
+  | fib_help a b c = fib_help b (a+b) (c-1);
   fun fib n = fib_help 0 1 n;
 
 
