@@ -1,0 +1,21 @@
+(* Qn 1: Map functions
+
+   map : ('a->'b)->'a list ->'b list
+ *)
+(*
+fun plusOne x = x+1 *)
+
+		      
+fun map f []      = []  
+  | map f (x::xs) =(f x) ::( map f xs)
+
+
+
+(*Qn 2:
+   Datatype that captures a tree
+   *)
+ 
+datatype 'a tree = null tree
+	|'a tree = node of ('a tree,  'a , 'a tree)
+
+
