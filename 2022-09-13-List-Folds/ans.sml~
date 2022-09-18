@@ -1,0 +1,12 @@
+(*
+
+foldr : ( 'elem * 'summar -> 'summary ) -> 'summary -> 'elem list -> 'summary
+foldl : ('elem * 'summary -> 'summary) -> 'summary -> 'elem list -> 'summary
+
+*)
+
+fun foldr f s [] = []
+  | foldr f s (x:xs) = f x (foldr f xs)
+
+fun foldl f s []        = []
+  | foldl  f s (x : xs) = foldl f (f a x) xs
