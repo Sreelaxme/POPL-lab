@@ -48,9 +48,9 @@ fun reverse_helper x []   = x
   | reverse_helper x (y::ys) = reverse_helper (y::x) ys
 fun reverse x = foldr reverse_helper [] x*)					      
 
-fun reverse x = let fun rhelp (x,y) = y@[x]
+fun reverse x = let fun rhelp (x,y) = x::y
 		in
-		    foldr rhelp [] x
+		    foldl rhelp [] x
 		 
 		end
 
@@ -59,6 +59,9 @@ fun reverse x = let fun rhelp (x,y) = y@[x]
 nth : 'a list * int -> 'a option
 
 *)		   
-
+(*
 datatype 'a find = LookingFor of int
-	| Found of 'a
+		 | Found of 'a
+				
+fun nth 0 x = foldl find of x
+*)
