@@ -36,5 +36,6 @@ end
 
 structure QSortInt = QSort(IntOrd)
 
-(*to check *)
+(*to check 
 QSortInt.sort [2,5,4,1]
+*)
