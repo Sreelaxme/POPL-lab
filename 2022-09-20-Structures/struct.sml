@@ -1,6 +1,6 @@
 (* QN1 Quick sort algorithm*)
 
-datatype order = LESS | GREATER | EQUAL
+
 signature SORT = sig
     type t
     val sort : t list-> t list
@@ -27,8 +27,8 @@ functor QSort (O : ORD_KEY): SORT = struct
 end
 
 (*QN2 *)
-structure IntOrd : ORD_KEY = struct
-    type ord_key = int 
+structure IntOrd :ORD_KEY= struct
+    type ord_key= int 
     val compare  = Int.compare
 end
 
