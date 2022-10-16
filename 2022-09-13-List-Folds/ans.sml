@@ -74,4 +74,4 @@ fun nhelp (Found x ) =SOME x
 	| nhelp (LookingFor x) = NONE
 fun nth list y = nhelp (nthAux list y)
 
-val ntest = nth [1,2,3,4,5] 4
+val ntest = nth [1,2,3,4,5] 7
