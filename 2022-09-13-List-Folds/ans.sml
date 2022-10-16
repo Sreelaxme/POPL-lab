@@ -1,3 +1,4 @@
+
 (*1
 
 foldr : ( 'elem * 'summar -> 'summary ) -> 'summary -> 'elem list -> 'summary
@@ -61,6 +62,7 @@ fun reverse x = let fun rhelp (x,y) = x::y
 nth : 'a list * int -> 'a option
 nthAux : 'a list * int -> 'a find
 *)		   
+
 
 datatype 'a Find = LookingFor of int
 		 | Found of 'a
