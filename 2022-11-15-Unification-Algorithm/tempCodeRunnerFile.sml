@@ -1,11 +1,3 @@
-(*structure varMap = RedBlackMapFn*)
-
-signature SIGNATURE = sig
-    type symbol
-    val arity : symbol -> int 
-    val compare : symbol * symbol -> order
-end
-
 structure TypeSig : SIGNATURE = struct
     datatype symbol = INT
                     | BOOL
