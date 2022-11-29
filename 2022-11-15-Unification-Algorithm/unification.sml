@@ -29,16 +29,16 @@ signature VAR = sig
     val compare : var * var -> order
 end
 
-functor Unify (structure S : SIGNATURE
+functor Unify (
+            structure S : SIGNATURE
             structure V : VAR
-) =
-struct
+) = struct
     datatype term = Var of V.var
                 |Apply of S.symbol * term list
-    type telsecope = term.AtomMap.map
+    type telsecope = term AtomMap.map
     type equation = term * term
 
-    fun unify (tel : telescope)(eqt: equation) : telescope =
-    case eqt of
-    
-end
+    fun unify (tel : telescope)(eqt: equation) : telescope = case eqt of 
+                    (VAR x ,t) => AtomMap.singleton(x,t)
+                    |(s, VAR y)=> AtomMap.singleton(y,s)
+                    |(Apply(f,fargs), Apply(g,gargs))=>
