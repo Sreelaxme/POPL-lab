@@ -28,17 +28,28 @@ signature VAR = sig
     val toString : var -> string
     val compare : var * var -> order
 end
+fun help (x::xs) (y::ys) = ((x,y)::(zip xs ys))
 
 functor Unify (
             structure S : SIGNATURE
             structure V : VAR
 ) = struct
-    datatype term = Var of V.var
+    datatype term = VAR of V.var
                 |Apply of S.symbol * term list
-    type telsecope = term AtomMap.map
+    structure VarMap = RedBlackMapFn(V)
+    type telsecope = term VarMap.map
     type equation = term * term
 
+    
     fun unify (tel : telescope)(eqt: equation) : telescope = case eqt of 
-                    (VAR x ,t) => AtomMap.singleton(x,t)
-                    |(s, VAR y)=> AtomMap.singleton(y,s)
-                    |(Apply(f,fargs), Apply(g,gargs))=>
+                    (VAR x ,t) => unifyVar x t
+                    |(s, VAR y)=> unifyVar y s
+                    |(Apply(f,fargs), Apply(g,gargs))=> unifyList tel (zip farfs, gargs)
+    and unifyVar (x: V.var) (t:term): telescope =AtomMap.singleton(x,t)
+        |unifyVar (s: term) (y:V.var): telsecope=AtomMap.singleton(y,s) 
+    and unifyList (tel : telescope) [] = SOME tel
+        | unifyList (tel: telescope) ((h,t)::eqns) : telescope = let s = unify tel (h,t)
+                                                                    in
+                                                                    unifylist s eqns
+                                                                    end
+    end
